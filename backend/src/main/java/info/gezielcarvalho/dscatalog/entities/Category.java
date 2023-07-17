@@ -3,17 +3,31 @@ package info.gezielcarvalho.dscatalog.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Category implements Serializable{
-	
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "`Categories`")
+public class Category implements Serializable {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "`Id`")
 	private Long id;
+	@Column(name = "`Name`")
 	private String name;
-	
-	public Category() {}
+
+	public Category() {
+	}
 
 	public Category(Long id, String name) {
 		this.id = id;
@@ -51,6 +65,6 @@ public class Category implements Serializable{
 			return false;
 		Category other = (Category) obj;
 		return Objects.equals(id, other.id);
-	}	
+	}
 
 }

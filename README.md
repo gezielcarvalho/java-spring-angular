@@ -9,7 +9,8 @@ This is a fullstack application that uses Java Spring Boot, ReactJS, and Postgre
 ### Backend
 
 1. Clone the repository
-2. Open the project in your IDE
+2. Open the backend project in your IDE
+3. Start the backend server
 
 ## Reference
 
