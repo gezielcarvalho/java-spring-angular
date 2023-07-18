@@ -1,12 +1,13 @@
 package info.gezielcarvalho.dscatalog.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import info.gezielcarvalho.dscatalog.entities.Category;
+import info.gezielcarvalho.dscatalog.dto.CategoryDTO;
 import info.gezielcarvalho.dscatalog.repositories.CategoryRepository;
 
 @Service
@@ -17,7 +18,11 @@ public class CategoryService {
 
 	// readOnly true avoids locking database 
 	@Transactional(readOnly = true)
-	public List<Category> findAll(){
-		return repository.findAll();
+	public List<CategoryDTO> findAll() {
+	    return repository
+	    		.findAll()
+	    		.stream()
+	            .map(cat ->  new CategoryDTO(cat))
+	            .collect(Collectors.toList());
 	}
 }
