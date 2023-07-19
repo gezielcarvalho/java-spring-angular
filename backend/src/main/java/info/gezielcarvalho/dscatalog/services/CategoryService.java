@@ -25,4 +25,12 @@ public class CategoryService {
 	            .map(cat ->  new CategoryDTO(cat))
 	            .collect(Collectors.toList());
 	}
+
+	public CategoryDTO findOne(Long id) {
+		var result = repository.findById(id);
+		if (result.isPresent()) {
+			return new CategoryDTO(result.get());
+		}
+		return null;
+	}
 }
