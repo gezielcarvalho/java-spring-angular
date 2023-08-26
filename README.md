@@ -1,8 +1,8 @@
-# Fullstack Java Spring + ReactJS + PostgreSQL
+# Fullstack Java Spring + Angular + PostgreSQL
 
 ## Description
 
-This is a fullstack application that uses Java Spring Boot, ReactJS, and PostgreSQL. It is a simple application that allows users to create, read, update, and delete (CRUD) a list of items. The items are stored in a PostgreSQL database. The backend is written in Java using Spring Boot. The frontend is written in ReactJS. The frontend and backend are connected using REST APIs.
+This is a fullstack application that uses Java Spring Boot, Angular and PostgreSQL. It is a simple application that allows users to create, read, update, and delete (CRUD) a list of items. The items are stored in a PostgreSQL database. The backend is written in Java using Spring Boot. The frontend is written in Angular. The frontend and backend are connected using REST APIs, documented by Swagger.
 
 ## Installation
 
@@ -16,3 +16,4 @@ This is a fullstack application that uses Java Spring Boot, ReactJS, and Postgre
 
 - [Nelio Alves](https://www.youtube.com/@DevSuperior)
 - [Java Spring Boot](https://spring.io/projects/spring-boot)
+- [Swagger](https://www.baeldung.com/spring-rest-openapi-documentation)
