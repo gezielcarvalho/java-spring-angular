@@ -1,7 +1,5 @@
 # Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -9,6 +7,32 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+### Architecture
+
+The architecture of the application is based on the following principles:
+
+- **Modularity**: The application is divided into modules, each module is responsible for a specific functionality.
+- **Lazy loading**: The modules are loaded only when they are needed.
+- **Components**: Each module is composed of components, each component is responsible for a specific functionality.
+- **Services**: Each module is composed of services, each service is responsible for a specific functionality.
+- **Models**: Each module is composed of models, each model is responsible for a specific functionality.
+- **State**: Each module is composed of state, each state is responsible for a specific functionality.
+- **Config**: Each module is composed of config, each config is responsible for a specific functionality.
+- **Environments**: Each module is composed of environments, each environment is responsible for a specific functionality.
+- **Routing**: Each module is composed of routing, each routing is responsible for a specific functionality.
+
+```bash
+src/
+├── app/
+│ ├── components/
+│ ├── services/
+│ ├── models/
+│ ├── state/
+│ ├── config/
+│ └── environments/
+└── ...
+```
 
 ## Build
 

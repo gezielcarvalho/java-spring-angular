@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
+import { Category } from './models/category.model';
 
-export interface Category {
-  id: number;
-  name: string;
-}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

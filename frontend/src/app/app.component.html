@@ -6,9 +6,13 @@
       <button (click)="create(newCategory.value)" class="add-button">+</button>
     </div>
     <table>
-      <tr *ngFor="let category of categories" class="even">
+      <tr
+        *ngFor="let category of categories; let i = index"
+        [class.even]="i % 2 == 0"
+        [class.odd]="i % 2 != 0"
+      >
         <td>
-          <pre>{{ category.name }}</pre>
+          <p>{{ category.name }}</p>
         </td>
         <td>
           <button (click)="destroy(category.id)" class="remove-button">
