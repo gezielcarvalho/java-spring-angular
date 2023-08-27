@@ -9,7 +9,7 @@
   flex-wrap: nowrap;
 }
 
-.category-list {
+.categories-list {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -82,6 +82,10 @@ tr {
   justify-content: space-between;
 }
 
+td {
+  margin-left: 1rem;
+}
+
 .even {
   background-color: rgb(44, 44, 44);
   color: rgb(255, 255, 255);
@@ -90,4 +94,8 @@ tr {
 .odd {
   background-color: rgb(11, 11, 11);
   color: rgb(255, 255, 255);
+}
+
+.is-done {
+  text-decoration: line-through;
 }
