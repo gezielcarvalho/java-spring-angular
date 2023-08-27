@@ -2,8 +2,8 @@
   <h1>{{ title }}</h1>
   <div class="categories-list">
     <div class="input-group">
-      <input type="text" placeholder="Category" />
-      <button class="add-button">+</button>
+      <input type="text" placeholder="Category" #newCategory />
+      <button (click)="create(newCategory.value)" class="add-button">+</button>
     </div>
     <table>
       <tr *ngFor="let category of categories" class="even">
@@ -11,7 +11,9 @@
           <pre>{{ category.name }}</pre>
         </td>
         <td>
-          <button class="remove-button">X</button>
+          <button (click)="destroy(category.id)" class="remove-button">
+            X
+          </button>
         </td>
       </tr>
     </table>
