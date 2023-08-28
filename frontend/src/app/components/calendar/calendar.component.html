@@ -1,4 +1,5 @@
 <div>
-  <mat-calendar />
-  <a [routerLink]="['/categories']">Categories</a>
+  <mat-calendar [(selected)]="selectedDate" />
+  {{ selectedDate | date : "mediumDate" }}
+  <a [routerLink]="['/categories', { date: selectedDate }]">Categories</a>
 </div>

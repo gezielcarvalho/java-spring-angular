@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -7,6 +8,13 @@ import { Category } from 'src/app/models/category.model';
   styleUrls: ['./category.component.css'],
 })
 export class CategoryComponent {
+  public date: Date = new Date();
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.date = new Date(this.route.snapshot.params['date']);
+  }
+
   categories: Category[] = [
     { id: 1, name: 'Books' },
     { id: 2, name: 'Electronics' },
