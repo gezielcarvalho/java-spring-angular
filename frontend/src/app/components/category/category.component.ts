@@ -23,6 +23,10 @@ export class CategoryComponent {
   ];
 
   create(name: string) {
+    // validate name
+    if (!name) {
+      return;
+    }
     let id = this.categories.length + 1;
     let newCategory: Category = { id, name };
     this.categories.push(newCategory);
