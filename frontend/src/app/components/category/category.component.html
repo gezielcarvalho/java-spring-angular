@@ -2,8 +2,31 @@
   <h1>{{ this.date }}</h1>
   <div class="categories-list">
     <div class="input-group">
-      <input type="text" placeholder="Category" #newCategory />
-      <button (click)="create(newCategory.value)" class="add-button">+</button>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Number</mat-label>
+          <input
+            type="text"
+            placeholder="Pick one"
+            aria-label="Number"
+            matInput
+            [formControl]="myControl"
+            [matAutocomplete]="auto"
+            #newCategory
+          />
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option
+              *ngFor="let option of filteredOptions | async"
+              [value]="option"
+            >
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <button (click)="create(newCategory.value)" class="add-button">
+          +
+        </button>
+      </form>
     </div>
     <table>
       <tr

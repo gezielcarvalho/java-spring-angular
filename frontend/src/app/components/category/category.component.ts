@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
+import { FormControl } from '@angular/forms';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-category',
@@ -8,11 +11,26 @@ import { ActivatedRoute, Route } from '@angular/router';
   styleUrls: ['./category.component.css'],
 })
 export class CategoryComponent {
+  filteredOptions: Observable<string[]> | undefined;
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter((option) =>
+      option.toLowerCase().includes(filterValue)
+    );
+  }
+
+  myControl = new FormControl('');
+  options: string[] = ['One', 'Two', 'Three'];
   public date: Date = new Date();
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.date = new Date(this.route.snapshot.params['date']);
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map((value) => this._filter(value || ''))
+    );
   }
 
   categories: Category[] = [
