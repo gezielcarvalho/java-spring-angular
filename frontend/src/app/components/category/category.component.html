@@ -23,9 +23,33 @@
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-        <button (click)="create(newCategory.value)" class="add-button">
+        <!-- Two way data binding -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Image</mat-label>
+          <input
+            type="text"
+            placeholder="Select category image"
+            aria-label="Image"
+            matInput
+            [formControl]="edtImage"
+            [(ngModel)]="strImageUrl"
+            #newImage
+          />
+        </mat-form-field>
+        <!-- Property & event binding-->
+        <button
+          mat-raised-button
+          color="primary"
+          (mouseover)="allowNewCategory = true"
+          (click)="create(newCategory.value)"
+          [disabled]="!allowNewCategory"
+          class="add-button"
+        >
           +
         </button>
+        <!-- String interpolation -->
+        <p>Allow new category is set to {{ allowNewCategory }}</p>
+        <p>Image URL: {{ strImageUrl }}</p>
       </form>
     </div>
     <table>

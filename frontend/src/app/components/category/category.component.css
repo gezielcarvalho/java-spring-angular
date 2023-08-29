@@ -16,24 +16,11 @@
   margin: auto;
 }
 
-.add-button {
-  border-style: none;
-  cursor: pointer;
-  color: #ffffff;
-  background-color: rgb(23, 23, 23);
-  font-size: x-large;
-  font-weight: bold;
-  /* color: white; */
-}
 button {
-  border-style: none;
   cursor: pointer;
   height: 100%;
 }
-.done-button {
-  background-color: #242424;
-  color: #ffffff;
-}
+
 .remove-button {
   background-color: #000000;
   color: #ffffff;

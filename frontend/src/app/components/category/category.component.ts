@@ -12,6 +12,7 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class CategoryComponent {
   filteredOptions: Observable<string[]> | undefined;
+  allowNewCategory = false;
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
@@ -21,16 +22,23 @@ export class CategoryComponent {
   }
 
   myControl = new FormControl('');
+  edtImage = new FormControl('');
+  strImageUrl = 'Lance';
   options: string[] = ['One', 'Two', 'Three'];
   public date: Date = new Date();
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.date = new Date(this.route.snapshot.params['date']);
+    this.edtImage.setValue('');
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map((value) => this._filter(value || ''))
     );
+
+    setTimeout(() => {
+      this.allowNewCategory = true;
+    }, 10000);
   }
 
   categories: Category[] = [
@@ -46,7 +54,8 @@ export class CategoryComponent {
       return;
     }
     let id = this.categories.length + 1;
-    let newCategory: Category = { id, name };
+    let imageUrl = this.edtImage.value || '';
+    let newCategory: Category = { id, name, imageUrl };
     this.categories.push(newCategory);
   }
 
