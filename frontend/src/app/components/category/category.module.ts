@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { CategoryComponent } from './category.component';
 
@@ -16,6 +17,7 @@ import { CategoryComponent } from './category.component';
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
+    MatBadgeModule,
     ReactiveFormsModule,
     NgFor,
     AsyncPipe,

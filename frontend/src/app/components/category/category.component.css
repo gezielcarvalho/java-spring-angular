@@ -16,9 +16,20 @@
   margin: auto;
 }
 
+.demo-section + .demo-section {
+  width: 20px;
+  align-items: flex-start;
+  margin-top: 16px;
+}
+
 button {
   cursor: pointer;
   height: 100%;
+}
+
+.add-button {
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .remove-button {

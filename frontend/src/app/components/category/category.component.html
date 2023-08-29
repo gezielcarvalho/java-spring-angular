@@ -1,5 +1,4 @@
 <div class="container">
-  <h1>{{ this.date }}</h1>
   <div class="categories-list">
     <div class="input-group">
       <form class="example-form">
@@ -37,16 +36,23 @@
           />
         </mat-form-field>
         <!-- Property & event binding-->
-        <button
-          mat-raised-button
-          color="primary"
-          (mouseover)="allowNewCategory = true"
-          (click)="create(newCategory.value)"
-          [disabled]="!allowNewCategory"
-          class="add-button"
+        <div
+          [matBadge]="categories.length"
+          matBadgeOverlap="false"
+          class="demo-section"
         >
-          +
-        </button>
+          <button
+            mat-raised-button
+            color="primary"
+            (mouseover)="allowNewCategory = true"
+            (click)="create(newCategory.value)"
+            [disabled]="!allowNewCategory"
+            class="add-button"
+          >
+            +
+          </button>
+        </div>
+
         <!-- String interpolation -->
         <p>Allow new category is set to {{ allowNewCategory }}</p>
         <p>Image URL: {{ strImageUrl }}</p>
@@ -68,6 +74,6 @@
         </td>
       </tr>
     </table>
+    <a [routerLink]="['/']">Home</a>
   </div>
-  <a [routerLink]="['/']">Home</a>
 </div>
