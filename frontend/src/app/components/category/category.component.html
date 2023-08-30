@@ -55,6 +55,10 @@
 
         <!-- String interpolation -->
         <p>Allow new category is set to {{ allowNewCategory }}</p>
+        <p *ngIf="!allowNewCategory; else notDisabled">Button is disabled</p>
+        <ng-template #notDisabled>
+          <p>Button is enabled!</p>
+        </ng-template>
         <p>Image URL: {{ strImageUrl }}</p>
       </form>
     </div>
