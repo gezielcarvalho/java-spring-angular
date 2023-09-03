@@ -1,16 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CategoryComponent } from './components/category/category.component';
-import { CalendarComponent } from './components/calendar/calendar.component';
+import { HomeComponent } from './screens/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CalendarComponent,
-  },
-  {
-    path: 'categories',
-    component: CategoryComponent,
+    component: HomeComponent,
   },
 ];
 
