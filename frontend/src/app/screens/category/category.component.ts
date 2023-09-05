@@ -42,10 +42,10 @@ export class CategoryComponent {
   }
 
   categories: Category[] = [
-    { id: 1, name: 'Books' },
-    { id: 2, name: 'Electronics' },
-    { id: 3, name: 'Computers' },
-    { id: 4, name: 'Magazines' },
+    { id: 2, name: 'Category 2', description: 'Category 2 description', imageUrl: 'https://cdn.pixabay.com/photo/2023/08/29/20/01/dahlia-8222054_1280.jpg'  },
+    { id: 2, name: 'Electronics', description: 'Electronics description', imageUrl: 'https://cdn.pixabay.com/photo/2023/08/29/20/01/dahlia-8222054_1280.jpg' },
+    { id: 3, name: 'Computers', description: 'Computers description', imageUrl: 'https://cdn.pixabay.com/photo/2023/08/29/20/01/dahlia-8222054_1280.jpg' },
+    { id: 4, name: 'Magazines', description: 'Magazines description', imageUrl: 'https://cdn.pixabay.com/photo/2023/08/29/20/01/dahlia-8222054_1280.jpg' },
   ];
 
   create(name: string) {
@@ -55,7 +55,8 @@ export class CategoryComponent {
     }
     let id = this.categories.length + 1;
     let imageUrl = this.edtImage.value || '';
-    let newCategory: Category = { id, name, imageUrl };
+    let description = 'description';
+    let newCategory: Category = { id, name, description, imageUrl };
     this.categories.push(newCategory);
   }
 
