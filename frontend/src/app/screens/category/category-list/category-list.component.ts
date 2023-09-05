@@ -1,12 +1,24 @@
 import { Component } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
-  styleUrls: ['./category-list.component.css'],
 })
 export class CategoryListComponent {
+  isModalVisible = false;
+  constructor(private categoryService: CategoryService) {}
+
+  ngOnInit() {
+    this.categoryService.openModal$.subscribe(() => {
+      this.openModal();
+    });
+    this.categoryService.closeModal$.subscribe(() => {
+      this.closeModal();
+    });
+  }
+
   categories: Category[] = [
     new Category(
       1,
@@ -28,7 +40,16 @@ export class CategoryListComponent {
     ),
   ];
 
-  constructor() {}
+  openModal() {
+    this.isModalVisible = true;
+  }
 
-  ngOnInit() {}
+  closeModal() {
+    this.isModalVisible = false;
+  }
+
+  addRecord(newRecord: Category) {
+    this.categories.push(newRecord);
+    this.closeModal();
+  }
 }

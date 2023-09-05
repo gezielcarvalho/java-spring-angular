@@ -1,3 +1,10 @@
-<app-category-item *ngFor="let category of categories" [category]="category">{{
-  category.name
-}}</app-category-item>
+<div class="p-1 xl:columns-3 md:columns-2">
+  <app-category-item
+    *ngFor="let category of categories"
+    [category]="category"
+  />
+  <app-add-category-modal
+    [isModalVisible]="isModalVisible"
+    (recordAdded)="addRecord($event)"
+  ></app-add-category-modal>
+</div>
