@@ -1,24 +1,29 @@
-// record.service.ts
+// category.service.ts
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Category } from '../models/category.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
-  private openModalSource = new Subject<void>();
+  private addRecordSource = new Subject<Category>();
   private closeModalSource = new Subject<void>();
+  private openModalSource = new Subject<void>();
 
-  openModal$ = this.openModalSource.asObservable();
+  addRecord$ = this.addRecordSource.asObservable();
   closeModal$ = this.closeModalSource.asObservable();
+  openModal$ = this.openModalSource.asObservable();
 
-  openModal() {
-    console.log('openModal in Service');
-    this.openModalSource.next();
+  addRecord(newRecord: Category) {
+    this.addRecordSource.next(newRecord);
   }
 
   closeModal() {
-    console.log('closeModal in Service');
     this.closeModalSource.next();
+  }
+
+  openModal() {
+    this.openModalSource.next();
   }
 }
