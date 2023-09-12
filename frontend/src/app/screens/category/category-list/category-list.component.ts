@@ -5,6 +5,7 @@ import { CategoryService } from 'src/app/services/category.service';
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
+  styleUrls: ['./category-list.component.css'],
 })
 export class CategoryListComponent {
   isModalVisible = false;
@@ -15,7 +16,12 @@ export class CategoryListComponent {
       this.openModal();
     });
     this.categoryService.closeModal$.subscribe(() => {
+      console.log('closeModal subscription in CategoryListComponent');
       this.closeModal();
+    });
+    this.categoryService.addRecord$.subscribe((newRecord: Category) => {
+      console.log('addRecord subscription in CategoryListComponent');
+      this.addRecord(newRecord);
     });
   }
 
@@ -49,7 +55,9 @@ export class CategoryListComponent {
   }
 
   addRecord(newRecord: Category) {
-    this.categories.push(newRecord);
+    console.log('addRecord in CategoryListComponent');
+    const newId = this.categories.length + 1;
+    this.categories.push({ ...newRecord, id: newId });
     this.closeModal();
   }
 }
