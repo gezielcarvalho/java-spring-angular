@@ -5,6 +5,25 @@
   />
   <app-add-category-modal
     [isModalVisible]="isModalVisible"
-    (recordAdded)="addRecord($event)"
   ></app-add-category-modal>
+  <p>Directives recap:</p>
+
+  <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
+    <li
+      class="pb-3 sm:pb-4"
+      *ngFor="let category of categories"
+      [ngClass]="{ odd: category.id % 2 != 0 }"
+      [ngStyle]="{
+        'background-color': category.id % 2 != 0 ? 'yellow' : 'transparent'
+      }"
+    >
+      <div class="flex items-center space-x-4">
+        <div class="inline-flex items-center text-base font-semibold">
+          {{ category.id }}
+        </div>
+      </div>
+    </li>
+  </ul>
+  <p appBasicHighlight>Basic highlight directive example</p>
+  <p appBetterHighlight>Better highlight directive example</p>
 </div>
