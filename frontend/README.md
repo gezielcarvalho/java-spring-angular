@@ -51,3 +51,28 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 https://stackoverflow.com/questions/71718228/how-to-resolve-tailwind-and-bootstrap-conflicts-in-an-angular-project
+https://www.npmjs.com/package/@fortawesome/angular-fontawesome
+
+## Header component
+
+```
+src/
+|-- app/
+|   |-- header/
+|   |   |-- header.component.html
+|   |   |-- header.component.ts
+|   |   |-- logo/
+|   |   |   |-- logo.component.html
+|   |   |   |-- logo.component.ts
+|   |   |-- navigation/
+|   |   |   |-- navigation.component.html
+|   |   |   |-- navigation.component.ts
+|   |   |-- mobile-menu/
+|   |   |   |-- mobile-menu.component.html
+|   |   |   |-- mobile-menu.component.ts
+|   |   |-- dropdown-menu/
+|   |   |   |-- dropdown-menu.component.html
+|   |   |   |-- dropdown-menu.component.ts
+|   |-- app.module.ts
+|-- ...
+```
