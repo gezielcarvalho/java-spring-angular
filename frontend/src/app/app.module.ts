@@ -21,6 +21,7 @@ import { SidebarIconComponent } from './components/header/sidebar/sidebar-icon/s
 import { BasicHighlightDirective } from './directives/basic-highlight.directive';
 import { BetterHighlightDirective } from './directives/better-highlight.directive';
 import { UnlessDirective } from './directives/unless.directive';
+import { UserDropdownComponent } from './components/header/navigation/user-dropdown/user-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { UnlessDirective } from './directives/unless.directive';
     BasicHighlightDirective,
     BetterHighlightDirective,
     UnlessDirective,
+    UserDropdownComponent,
   ],
   imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule],
   providers: [],
