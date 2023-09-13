@@ -20,6 +20,7 @@ import { SidebarComponent } from './components/header/sidebar/sidebar.component'
 import { SidebarIconComponent } from './components/header/sidebar/sidebar-icon/sidebar-icon.component';
 import { BasicHighlightDirective } from './directives/basic-highlight.directive';
 import { BetterHighlightDirective } from './directives/better-highlight.directive';
+import { UnlessDirective } from './directives/unless.directive';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { BetterHighlightDirective } from './directives/better-highlight.directiv
     SidebarIconComponent,
     BasicHighlightDirective,
     BetterHighlightDirective,
+    UnlessDirective,
   ],
   imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule],
   providers: [],

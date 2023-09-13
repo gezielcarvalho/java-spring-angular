@@ -9,7 +9,12 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class CategoryListComponent {
   isModalVisible = false;
+  isAreaVisible = false;
   constructor(private categoryService: CategoryService) {}
+
+  toggleArea() {
+    this.isAreaVisible = !this.isAreaVisible;
+  }
 
   ngOnInit() {
     this.categoryService.openModal$.subscribe(() => {

@@ -1,6 +1,8 @@
 // category.service.ts
 import { Injectable } from '@angular/core';
+
 import { Subject } from 'rxjs';
+
 import { Category } from '../models/category.model';
 
 @Injectable({
