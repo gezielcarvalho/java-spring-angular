@@ -10,46 +10,27 @@ import { CategoryService } from 'src/app/services/category.service';
 export class CategoryListComponent {
   isModalVisible = false;
   isAreaVisible = false;
-  constructor(private categoryService: CategoryService) {}
+  categories: Category[] = [];
+  constructor(private service: CategoryService) {}
 
   toggleArea() {
     this.isAreaVisible = !this.isAreaVisible;
   }
 
   ngOnInit() {
-    this.categoryService.openModal$.subscribe(() => {
+    this.categories = this.service.categories;
+    this.service.openModal$.subscribe(() => {
       this.openModal();
     });
-    this.categoryService.closeModal$.subscribe(() => {
+    this.service.closeModal$.subscribe(() => {
       console.log('closeModal subscription in CategoryListComponent');
       this.closeModal();
     });
-    this.categoryService.addRecord$.subscribe((newRecord: Category) => {
+    this.service.addRecord$.subscribe((newRecord: Category) => {
       console.log('addRecord subscription in CategoryListComponent');
       this.addRecord(newRecord);
     });
   }
-
-  categories: Category[] = [
-    new Category(
-      1,
-      'Category 1',
-      'Category 1 description',
-      'https://cdn.pixabay.com/photo/2023/08/29/20/01/dahlia-8222054_1280.jpg'
-    ),
-    new Category(
-      2,
-      'Category 2',
-      'Category 2 description',
-      'https://cdn.pixabay.com/photo/2023/05/29/13/10/shoes-8026038_1280.jpg'
-    ),
-    new Category(
-      3,
-      'Category 3',
-      'Category 3 description',
-      'https://cdn.pixabay.com/photo/2023/04/03/17/46/coffee-7897414_1280.jpg'
-    ),
-  ];
 
   openModal() {
     this.isModalVisible = true;
