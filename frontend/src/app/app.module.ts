@@ -13,7 +13,6 @@ import { CategoryComponent } from './screens/category/category.component';
 import { CategoryDetailComponent } from './screens/category/category-detail/category-detail.component';
 import { CategoryItemComponent } from './screens/category/category-list/category-item/category-item.component';
 import { CategoryListComponent } from './screens/category/category-list/category-list.component';
-import { CategoryService } from './services/category.service';
 import { CategoryToolbarComponent } from './screens/category/category-toolbar/category-toolbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './screens/home/home.component';
@@ -45,7 +44,7 @@ import { UserDropdownComponent } from './components/header/navigation/user-dropd
     UserDropdownComponent,
   ],
   imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule],
-  providers: [CategoryService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
