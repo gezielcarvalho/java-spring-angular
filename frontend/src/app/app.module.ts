@@ -22,6 +22,7 @@ import { BasicHighlightDirective } from './directives/basic-highlight.directive'
 import { BetterHighlightDirective } from './directives/better-highlight.directive';
 import { UnlessDirective } from './directives/unless.directive';
 import { UserDropdownComponent } from './components/header/navigation/user-dropdown/user-dropdown.component';
+import { CategoryService } from './services/category.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { UserDropdownComponent } from './components/header/navigation/user-dropd
     UserDropdownComponent,
   ],
   imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule],
-  providers: [],
+  providers: [CategoryService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
