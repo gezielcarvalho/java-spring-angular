@@ -19,7 +19,7 @@ export class CategoryService {
 
   categories: Category[] = [
     {
-      id: 2,
+      id: 1,
       name: 'Category 2',
       description: 'Category 2 description',
       imageUrl:

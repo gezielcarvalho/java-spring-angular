@@ -27,6 +27,8 @@ import { UserDropdownComponent } from './components/header/navigation/user-dropd
   declarations: [
     AddCategoryModalComponent,
     AppComponent,
+    BasicHighlightDirective,
+    BetterHighlightDirective,
     CategoryComponent,
     CategoryDetailComponent,
     CategoryItemComponent,
@@ -38,8 +40,6 @@ import { UserDropdownComponent } from './components/header/navigation/user-dropd
     NavigationComponent,
     SidebarComponent,
     SidebarIconComponent,
-    BasicHighlightDirective,
-    BetterHighlightDirective,
     UnlessDirective,
     UserDropdownComponent,
   ],
