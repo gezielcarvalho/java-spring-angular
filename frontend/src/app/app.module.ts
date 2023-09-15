@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { AddCategoryModalComponent } from './screens/category/add-category-modal/add-category-modal.component';
+import { CategoryModalComponent } from './screens/category/category-modal/category-modal.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BasicHighlightDirective } from './directives/basic-highlight.directive';
@@ -18,18 +18,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './screens/home/home.component';
 import { LogoComponent } from './components/header/logo/logo.component';
 import { NavigationComponent } from './components/header/navigation/navigation.component';
-import { SidebarComponent } from './components/header/sidebar/sidebar.component';
-import { SidebarIconComponent } from './components/header/sidebar/sidebar-icon/sidebar-icon.component';
-import { UnlessDirective } from './directives/unless.directive';
-import { UserDropdownComponent } from './components/header/navigation/user-dropdown/user-dropdown.component';
 import { ProductComponent } from './screens/product/product.component';
 import { ProductListComponent } from './screens/product/product-list/product-list.component';
 import { ProductToolbarComponent } from './screens/product/product-toolbar/product-toolbar.component';
 import { ProductItemComponent } from './screens/product/product-list/product-item/product-item.component';
+import { SidebarComponent } from './components/header/sidebar/sidebar.component';
+import { SidebarIconComponent } from './components/header/sidebar/sidebar-icon/sidebar-icon.component';
+import { UnlessDirective } from './directives/unless.directive';
+import { UserDropdownComponent } from './components/header/navigation/user-dropdown/user-dropdown.component';
 
 @NgModule({
   declarations: [
-    AddCategoryModalComponent,
     AppComponent,
     BasicHighlightDirective,
     BetterHighlightDirective,
@@ -37,6 +36,7 @@ import { ProductItemComponent } from './screens/product/product-list/product-ite
     CategoryDetailComponent,
     CategoryItemComponent,
     CategoryListComponent,
+    CategoryModalComponent,
     CategoryToolbarComponent,
     HomeComponent,
     HeaderComponent,

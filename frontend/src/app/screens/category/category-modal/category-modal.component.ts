@@ -4,10 +4,10 @@ import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
-  selector: 'app-add-category-modal',
-  templateUrl: './add-category-modal.component.html',
+  selector: 'app-category-modal',
+  templateUrl: './category-modal.component.html',
 })
-export class AddCategoryModalComponent {
+export class CategoryModalComponent {
   @Input() isModalVisible = false; // Initialize as hidden
 
   constructor(private categoryService: CategoryService) {}

@@ -3,9 +3,7 @@
     *ngFor="let category of categories"
     [category]="category"
   />
-  <app-add-category-modal
-    [isModalVisible]="isModalVisible"
-  ></app-add-category-modal>
+  <app-category-modal [isModalVisible]="isModalVisible"></app-category-modal>
   <div class="rounded overflow-hidden shadow-lg p-4">
     <p>Directives playground:</p>
 
