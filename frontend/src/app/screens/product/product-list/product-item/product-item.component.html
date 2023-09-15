@@ -1,0 +1,15 @@
+<div class="rounded overflow-hidden shadow-lg">
+  <div class="px-6 py-4 flex flex-row place-content-between">
+    <div class="flex flex-col">
+      <div class="font-bold text-xl mb-2">{{ product?.name }}</div>
+      <p class="text-gray-700 text-base">
+        {{ product?.description }}
+      </p>
+    </div>
+    <img
+      class="w-16 rounded-md"
+      [src]="product?.imageUrl"
+      [alt]="product?.name"
+    />
+  </div>
+</div>

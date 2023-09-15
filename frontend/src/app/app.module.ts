@@ -25,6 +25,7 @@ import { UserDropdownComponent } from './components/header/navigation/user-dropd
 import { ProductComponent } from './screens/product/product.component';
 import { ProductListComponent } from './screens/product/product-list/product-list.component';
 import { ProductToolbarComponent } from './screens/product/product-toolbar/product-toolbar.component';
+import { ProductItemComponent } from './screens/product/product-list/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ProductToolbarComponent } from './screens/product/product-toolbar/produ
     ProductComponent,
     ProductListComponent,
     ProductToolbarComponent,
+    ProductItemComponent,
   ],
   imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule],
   providers: [],
