@@ -50,17 +50,9 @@
               id="name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white mb-3"
               placeholder="Enter category name"
+              [value]="selectedCategory?.name"
               required
             />
-            <!-- <input
-              type="text"
-              [(ngModel)]="categoryData.name"
-              name="name"
-              id="name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white mb-3"
-              placeholder="Enter category name"
-              required
-            /> -->
           </div>
           <div>
             <label
@@ -75,6 +67,7 @@
               id="description"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white mb-3"
               placeholder="Enter category description"
+              [value]="selectedCategory?.description"
               required
             />
           </div>
@@ -91,6 +84,7 @@
               id="imageUrl"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white mb-3"
               placeholder="Enter image path"
+              [value]="selectedCategory?.imageUrl"
               required
             />
           </div>

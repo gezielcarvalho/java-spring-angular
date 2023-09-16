@@ -1,5 +1,5 @@
 // add-record-modal.component.ts
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/services/category.service';
 
@@ -7,10 +7,20 @@ import { CategoryService } from 'src/app/services/category.service';
   selector: 'app-category-modal',
   templateUrl: './category-modal.component.html',
 })
-export class CategoryModalComponent {
+export class CategoryModalComponent implements OnInit {
   @Input() isModalVisible = false; // Initialize as hidden
+  selectedCategory: Category | undefined;
 
   constructor(private categoryService: CategoryService) {}
+  ngOnInit(): void {
+    this.categoryService.categorySelected.subscribe((category: Category) => {
+      this.categoryService.openModal();
+      this.selectedCategory = category;
+    });
+    this.categoryService.openModal$.subscribe(() => {
+      this.selectedCategory = undefined;
+    });
+  }
 
   onSave(newCategory: Category) {
     if (newCategory.name && newCategory.description) {
