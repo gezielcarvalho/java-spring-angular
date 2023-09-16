@@ -11,6 +11,10 @@
       transition-all duration-300 ease-linear cursor-pointer;
   }
 
+  .sidebar-icon-active {
+    @apply rounded-xl bg-green-600 cursor-default text-white;
+  }
+
   .logo-icon {
     @apply relative mt-2 mb-2 shadow-lg h-12 w-12 
     flex items-center justify-center  bg-white
