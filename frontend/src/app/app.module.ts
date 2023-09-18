@@ -26,6 +26,7 @@ import { SidebarComponent } from './components/header/sidebar/sidebar.component'
 import { SidebarIconComponent } from './components/header/sidebar/sidebar-icon/sidebar-icon.component';
 import { UnlessDirective } from './directives/unless.directive';
 import { UserDropdownComponent } from './components/header/navigation/user-dropdown/user-dropdown.component';
+import { PageNotFoundComponent } from './screens/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { UserDropdownComponent } from './components/header/navigation/user-dropd
     ProductListComponent,
     ProductToolbarComponent,
     ProductItemComponent,
+    PageNotFoundComponent,
   ],
   imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule],
   providers: [],

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CategoryComponent } from './screens/category/category.component';
 import { HomeComponent } from './screens/home/home.component';
 import { ProductComponent } from './screens/product/product.component';
+import { PageNotFoundComponent } from './screens/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,15 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductComponent,
+  },
+  {
+    path: 'not-found',
+    component: PageNotFoundComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '/not-found',
+    pathMatch: 'full',
   },
 ];
 
