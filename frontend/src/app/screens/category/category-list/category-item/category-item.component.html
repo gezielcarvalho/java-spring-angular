@@ -1,17 +1,27 @@
 <div class="rounded overflow-hidden shadow-lg">
-  <div class="px-6 py-4 flex flex-row place-content-between">
+  <div
+    class="px-6 py-4 flex flex-row place-content-between items-center content-center"
+  >
     <div class="flex flex-col">
       <div class="font-bold text-xl mb-2">{{ category?.name }}</div>
       <p class="text-gray-700 text-base">
         {{ category?.description }}
       </p>
     </div>
-    <button (click)="onSelected()">
-      <img
-        class="w-16 rounded-md"
-        [src]="category?.imageUrl"
-        [alt]="category?.name"
-      />
-    </button>
+
+    <img
+      class="w-16 rounded-md"
+      [src]="category?.imageUrl"
+      [alt]="category?.name"
+    />
+
+    <div class="flex flex-col p-2 content-evenly">
+      <button (click)="onSelected()">
+        <fa-icon [icon]="faEdit" size="1x" />
+      </button>
+      <button (click)="onDeleteRecord()">
+        <fa-icon [icon]="faTrash" size="1x" />
+      </button>
+    </div>
   </div>
 </div>

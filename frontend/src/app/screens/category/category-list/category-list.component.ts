@@ -26,9 +26,17 @@ export class CategoryListComponent {
       console.log('closeModal subscription in CategoryListComponent');
       this.closeModal();
     });
-    this.service.addRecord$.subscribe((newRecord: Category) => {
-      console.log('addRecord subscription in CategoryListComponent');
-      this.addRecord(newRecord);
+    this.service.saveRecord$.subscribe((newRecord: Category) => {
+      console.log('saveRecord subscription in CategoryListComponent');
+      this.saveRecord(newRecord);
+    });
+    this.service.updateRecord$.subscribe((newRecord: Category) => {
+      console.log('updateRecord subscription in CategoryListComponent');
+      this.updateRecord(newRecord);
+    });
+    this.service.deleteRecord$.subscribe((newRecord: Category) => {
+      console.log('deleteRecord subscription in CategoryListComponent');
+      this.deleteRecord(newRecord);
     });
   }
 
@@ -40,10 +48,34 @@ export class CategoryListComponent {
     this.isModalVisible = false;
   }
 
-  addRecord(newRecord: Category) {
-    console.log('addRecord in CategoryListComponent');
+  saveRecord(newRecord: Category) {
+    console.log('saveRecord in CategoryListComponent');
+    console.log({ newRecord });
+
     const newId = this.categories.length + 1;
     this.categories.push({ ...newRecord, id: newId });
+    this.closeModal();
+  }
+
+  updateRecord(newRecord: Category) {
+    console.log('updateRecord in CategoryListComponent');
+    console.log({ newRecord });
+
+    const index = this.categories.findIndex(
+      (category) => category.id === newRecord.id
+    );
+    this.categories[index] = newRecord;
+    this.closeModal();
+  }
+
+  deleteRecord(newRecord: Category) {
+    console.log('deleteRecord in CategoryListComponent');
+    console.log({ newRecord });
+
+    const index = this.categories.findIndex(
+      (category) => category.id === newRecord.id
+    );
+    this.categories.splice(index, 1);
     this.closeModal();
   }
 }

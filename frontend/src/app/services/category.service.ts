@@ -1,5 +1,5 @@
 // category.service.ts
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 import { Subject } from 'rxjs';
 
@@ -9,11 +9,19 @@ import { Category } from '../models/category.model';
   providedIn: 'root',
 })
 export class CategoryService {
-  private addRecordSource = new Subject<Category>();
+  // TODO: encapsulate
+  categorySelected = new EventEmitter<Category>();
+  categoryDeleted = new EventEmitter<Category>();
+
+  private saveRecordSource = new Subject<Category>();
+  private updateRecordSource = new Subject<Category>();
+  private deleteRecordSource = new Subject<Category>();
   private closeModalSource = new Subject<void>();
   private openModalSource = new Subject<void>();
 
-  addRecord$ = this.addRecordSource.asObservable();
+  saveRecord$ = this.saveRecordSource.asObservable();
+  updateRecord$ = this.updateRecordSource.asObservable();
+  deleteRecord$ = this.deleteRecordSource.asObservable();
   closeModal$ = this.closeModalSource.asObservable();
   openModal$ = this.openModalSource.asObservable();
 
@@ -48,12 +56,16 @@ export class CategoryService {
     },
   ];
 
-  addCategory(category: Category) {
-    this.categories.push(category);
+  saveRecord(newRecord: Category) {
+    this.saveRecordSource.next(newRecord);
   }
 
-  addRecord(newRecord: Category) {
-    this.addRecordSource.next(newRecord);
+  updateRecord(newRecord: Category) {
+    this.updateRecordSource.next(newRecord);
+  }
+
+  deleteRecord(record: Category) {
+    this.deleteRecordSource.next(record);
   }
 
   closeModal() {

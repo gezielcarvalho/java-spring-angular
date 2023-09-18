@@ -17,6 +17,10 @@ export class CategoryModalComponent implements OnInit {
       this.categoryService.openModal();
       this.selectedCategory = category;
     });
+    this.categoryService.categoryDeleted.subscribe((category: Category) => {
+      this.selectedCategory = category;
+      this.categoryService.deleteRecord(category);
+    });
     this.categoryService.openModal$.subscribe(() => {
       this.selectedCategory = undefined;
     });
@@ -24,7 +28,14 @@ export class CategoryModalComponent implements OnInit {
 
   onSave(newCategory: Category) {
     if (newCategory.name && newCategory.description) {
-      this.categoryService.addRecord(newCategory);
+      if (this.selectedCategory) {
+        this.categoryService.updateRecord({
+          ...newCategory,
+          id: this.selectedCategory.id,
+        });
+      } else {
+        this.categoryService.saveRecord(newCategory);
+      }
     }
   }
 
