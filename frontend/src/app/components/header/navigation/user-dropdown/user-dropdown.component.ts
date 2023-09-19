@@ -6,7 +6,14 @@ import { Component } from '@angular/core';
 })
 export class UserDropdownComponent {
   isDropdownVisible = false;
-  toggleDropdown() {
+  toggleDropdown($event: Event) {
+    $event.stopPropagation();
     this.isDropdownVisible = !this.isDropdownVisible;
+  }
+  onLogout() {
+    this.isDropdownVisible = false;
+  }
+  onOutsideClick() {
+    this.isDropdownVisible = false;
   }
 }

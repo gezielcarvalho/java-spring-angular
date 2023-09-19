@@ -14,6 +14,7 @@ import { CategoryDetailComponent } from './screens/category/category-detail/cate
 import { CategoryItemComponent } from './screens/category/category-list/category-item/category-item.component';
 import { CategoryListComponent } from './screens/category/category-list/category-list.component';
 import { CategoryToolbarComponent } from './screens/category/category-toolbar/category-toolbar.component';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './screens/home/home.component';
 import { LogoComponent } from './components/header/logo/logo.component';
@@ -27,6 +28,7 @@ import { SidebarIconComponent } from './components/header/sidebar/sidebar-icon/s
 import { UnlessDirective } from './directives/unless.directive';
 import { UserDropdownComponent } from './components/header/navigation/user-dropdown/user-dropdown.component';
 import { PageNotFoundComponent } from './screens/page-not-found/page-not-found.component';
+import { LoginButtonComponent } from './components/header/navigation/login-button/login-button.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +41,9 @@ import { PageNotFoundComponent } from './screens/page-not-found/page-not-found.c
     CategoryListComponent,
     CategoryModalComponent,
     CategoryToolbarComponent,
-    HomeComponent,
+    ClickOutsideDirective,
     HeaderComponent,
+    HomeComponent,
     LogoComponent,
     NavigationComponent,
     SidebarComponent,
@@ -52,6 +55,7 @@ import { PageNotFoundComponent } from './screens/page-not-found/page-not-found.c
     ProductToolbarComponent,
     ProductItemComponent,
     PageNotFoundComponent,
+    LoginButtonComponent,
   ],
   imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule],
   providers: [],
