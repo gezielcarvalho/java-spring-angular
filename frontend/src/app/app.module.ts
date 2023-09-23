@@ -34,6 +34,8 @@ import { ItemToolbarComponent } from './screens/items/item-toolbar/item-toolbar.
 import { ItemListComponent } from './screens/items/item-list/item-list.component';
 import { ItemItemComponent } from './screens/items/item-list/item-item/item-item.component';
 import { ItemDetailsComponent } from './screens/items/item-list/item-details/item-details.component';
+import { ProductStartComponent } from './screens/product/product-start/product-start.component';
+import { ProductDetailComponent } from './screens/product/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { ItemDetailsComponent } from './screens/items/item-list/item-details/ite
     ItemListComponent,
     ItemItemComponent,
     ItemDetailsComponent,
+    ProductStartComponent,
+    ProductDetailComponent,
   ],
   imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule],
   providers: [],

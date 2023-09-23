@@ -7,6 +7,8 @@ import { ProductComponent } from './screens/product/product.component';
 import { PageNotFoundComponent } from './screens/page-not-found/page-not-found.component';
 import { ItemsComponent } from './screens/items/items.component';
 import { ItemDetailsComponent } from './screens/items/item-list/item-details/item-details.component';
+import { ProductStartComponent } from './screens/product/product-start/product-start.component';
+import { ProductDetailComponent } from './screens/product/product-detail/product-detail.component';
 
 const routes: Routes = [
   {
@@ -20,6 +22,16 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductComponent,
+    children: [
+      {
+        path: '',
+        component: ProductStartComponent,
+      },
+      {
+        path: ':id',
+        component: ProductDetailComponent,
+      },
+    ],
   },
   {
     path: 'not-found',
