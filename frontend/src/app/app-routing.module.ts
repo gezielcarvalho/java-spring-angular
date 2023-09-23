@@ -5,6 +5,7 @@ import { CategoryComponent } from './screens/category/category.component';
 import { HomeComponent } from './screens/home/home.component';
 import { ProductComponent } from './screens/product/product.component';
 import { PageNotFoundComponent } from './screens/page-not-found/page-not-found.component';
+import { ItemsComponent } from './screens/items/items.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'not-found',
     component: PageNotFoundComponent,
+  },
+  {
+    path: 'items',
+    component: ItemsComponent,
   },
   {
     path: '**',

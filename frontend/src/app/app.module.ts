@@ -29,6 +29,10 @@ import { SidebarComponent } from './components/header/sidebar/sidebar.component'
 import { SidebarIconComponent } from './components/header/sidebar/sidebar-icon/sidebar-icon.component';
 import { UnlessDirective } from './directives/unless.directive';
 import { UserDropdownComponent } from './components/header/navigation/user-dropdown/user-dropdown.component';
+import { ItemsComponent } from './screens/items/items.component';
+import { ItemToolbarComponent } from './screens/items/item-toolbar/item-toolbar.component';
+import { ItemListComponent } from './screens/items/item-list/item-list.component';
+import { ItemItemComponent } from './screens/items/item-list/item-item/item-item.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,7 @@ import { UserDropdownComponent } from './components/header/navigation/user-dropd
     ClickOutsideDirective,
     HeaderComponent,
     HomeComponent,
+    LoginButtonComponent,
     LogoComponent,
     NavigationComponent,
     SidebarComponent,
@@ -55,7 +60,10 @@ import { UserDropdownComponent } from './components/header/navigation/user-dropd
     ProductToolbarComponent,
     ProductItemComponent,
     PageNotFoundComponent,
-    LoginButtonComponent,
+    ItemsComponent,
+    ItemToolbarComponent,
+    ItemListComponent,
+    ItemItemComponent,
   ],
   imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule],
   providers: [],
