@@ -1,0 +1,16 @@
+<h3>{{ item.name }}</h3>
+<div>
+  <div>
+    <div>
+      <img [src]="item.imageUrl" [alt]="item.name" />
+    </div>
+  </div>
+  <div>
+    <div>Description: {{ item.description }}</div>
+    <div>Category: {{ item.category }}</div>
+    <div>Price: {{ item.price }}</div>
+    <div>
+      <button (click)="addToCart()">Add to Cart</button>
+    </div>
+  </div>
+</div>

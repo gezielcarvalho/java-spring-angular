@@ -33,6 +33,7 @@ import { ItemsComponent } from './screens/items/items.component';
 import { ItemToolbarComponent } from './screens/items/item-toolbar/item-toolbar.component';
 import { ItemListComponent } from './screens/items/item-list/item-list.component';
 import { ItemItemComponent } from './screens/items/item-list/item-item/item-item.component';
+import { ItemDetailsComponent } from './screens/items/item-list/item-details/item-details.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { ItemItemComponent } from './screens/items/item-list/item-item/item-item
     ItemToolbarComponent,
     ItemListComponent,
     ItemItemComponent,
+    ItemDetailsComponent,
   ],
   imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule],
   providers: [],

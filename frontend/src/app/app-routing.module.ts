@@ -6,6 +6,7 @@ import { HomeComponent } from './screens/home/home.component';
 import { ProductComponent } from './screens/product/product.component';
 import { PageNotFoundComponent } from './screens/page-not-found/page-not-found.component';
 import { ItemsComponent } from './screens/items/items.component';
+import { ItemDetailsComponent } from './screens/items/item-list/item-details/item-details.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'items',
     component: ItemsComponent,
+  },
+  {
+    path: 'items/:id',
+    component: ItemDetailsComponent,
   },
   {
     path: '**',
