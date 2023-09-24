@@ -56,7 +56,6 @@ export class ProductService {
   }
 
   getProduct(id: number): Product | undefined {
-    console.log(id);
     return this.products.find((product) => product.id === id);
   }
 }
