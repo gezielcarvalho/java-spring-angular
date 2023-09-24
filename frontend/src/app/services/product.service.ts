@@ -54,4 +54,9 @@ export class ProductService {
     // get a copy of the products array instead of the original array
     return this.products.slice();
   }
+
+  getProduct(id: number): Product | undefined {
+    console.log(id);
+    return this.products.find((product) => product.id === id);
+  }
 }
