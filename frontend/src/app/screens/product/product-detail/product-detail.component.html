@@ -6,10 +6,20 @@
         {{ product?.description }}
       </p>
     </div>
-    <img
-      class="w-16 rounded-md"
-      [src]="product?.imageUrl"
-      [alt]="product?.name"
-    />
+    <div class="flex flex-row items-center">
+      <img
+        class="w-16 rounded-md"
+        [src]="product?.imageUrl"
+        [alt]="product?.name"
+      />
+      <div class="flex flex-col p-2 content-evenly">
+        <button (click)="onEditRecord(product!)">
+          <fa-icon [icon]="faEdit" size="1x" />
+        </button>
+        <button (click)="onDeleteRecord(product!)">
+          <fa-icon [icon]="faTrash" size="1x" />
+        </button>
+      </div>
+    </div>
   </div>
 </div>

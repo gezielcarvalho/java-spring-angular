@@ -8,13 +8,9 @@ import { Product } from 'src/app/models/product.model';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product | undefined;
-  isSelected: boolean = false;
+  @Input() productId: number | undefined;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.route.firstChild?.params.subscribe((params) => {
-      this.isSelected = +params['id'] === this.product?.id;
-    });
-  }
+  ngOnInit(): void {}
 }

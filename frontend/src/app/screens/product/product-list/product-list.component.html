@@ -1,3 +1,7 @@
 <div class="p-1 xl:columns-3 md:columns-2">
-  <app-product-item *ngFor="let product of products" [product]="product" />
+  <app-product-item
+    *ngFor="let product of products"
+    [product]="product"
+    [productId]="product.id"
+  />
 </div>
