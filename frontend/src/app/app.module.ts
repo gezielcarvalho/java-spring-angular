@@ -36,6 +36,7 @@ import { ItemItemComponent } from './screens/items/item-list/item-item/item-item
 import { ItemDetailsComponent } from './screens/items/item-list/item-details/item-details.component';
 import { ProductStartComponent } from './screens/product/product-start/product-start.component';
 import { ProductDetailComponent } from './screens/product/product-detail/product-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -71,8 +72,14 @@ import { ProductDetailComponent } from './screens/product/product-detail/product
     ProductStartComponent,
     ProductDetailComponent,
   ],
-  imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule],
-  providers: [],
+  imports: [
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserModule,
+    FontAwesomeModule,
+    FormsModule,
+  ],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

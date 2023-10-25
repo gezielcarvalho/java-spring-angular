@@ -42,4 +42,9 @@ export class CategoryModalComponent implements OnInit {
   onClose() {
     this.categoryService.closeModal();
   }
+
+  onActivate() {
+    this.categoryService.activateParagraph().next(true);
+    this.categoryService.updateData();
+  }
 }

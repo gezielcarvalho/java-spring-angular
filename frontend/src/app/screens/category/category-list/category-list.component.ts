@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/services/category.service';
 
@@ -7,7 +8,12 @@ import { CategoryService } from 'src/app/services/category.service';
   templateUrl: './category-list.component.html',
   styleUrls: ['./category-list.component.css'],
 })
-export class CategoryListComponent {
+export class CategoryListComponent implements OnInit, OnDestroy {
+  userActivated = false;
+  userSeed: string | undefined;
+
+  private activatedSubscription: Subscription | undefined;
+  private updateDataSubscription: Subscription | undefined;
   isModalVisible = false;
   isAreaVisible = false;
   categories: Category[] = [];
@@ -18,6 +24,11 @@ export class CategoryListComponent {
   }
 
   ngOnInit() {
+    this.activatedSubscription = this.service.activatedEmitter.subscribe(
+      (didActivate) => {
+        this.userActivated = didActivate;
+      }
+    );
     this.categories = this.service.categories;
     this.service.openModal$.subscribe(() => {
       this.openModal();
@@ -38,6 +49,19 @@ export class CategoryListComponent {
       console.log('deleteRecord subscription in CategoryListComponent');
       this.deleteRecord(newRecord);
     });
+    this.updateDataSubscription = this.service.updateDataSource.subscribe(
+      (newData: any) => {
+        console.log('updateData subscription in CategoryListComponent');
+        console.log({ newData });
+        this.userSeed = newData.info.seed;
+      }
+    );
+    this.service.updateData();
+  }
+
+  ngOnDestroy() {
+    this.activatedSubscription?.unsubscribe();
+    this.updateDataSubscription?.unsubscribe();
   }
 
   openModal() {

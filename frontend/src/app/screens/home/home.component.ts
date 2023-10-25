@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { interval, Observable, Observer, Subscription } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -19,30 +20,39 @@ export class HomeComponent implements OnInit, OnDestroy {
     const customIntervalObservable = new Observable(
       (observer: Observer<number>) => {
         let count = 0;
-        let limit = 6;
+        let limit = 12;
         setInterval(() => {
           observer.next(count);
-          if (count === 5) {
+          if (count === 10) {
             observer.complete();
           }
           if (count > limit) {
             observer.error(new Error(`Counter is greater than ${limit}`));
           }
           count++;
-        }, 1600);
+        }, 1700);
       }
     );
 
-    this.customCounter = customIntervalObservable.subscribe(
-      (data: number) => {
-        console.log({ custom: data });
-      },
-      (error: Error) => {
-        console.warn({ error });
-      },
-      () => {
-        console.log('Completed!');
-      }
-    );
+    this.customCounter = customIntervalObservable
+      .pipe(
+        filter((data: number) => {
+          return data % 2 === 0;
+        }),
+        map((data: number) => {
+          return `Round: ${data + 1}`;
+        })
+      )
+      .subscribe(
+        (data) => {
+          console.log({ custom: data });
+        },
+        (error: Error) => {
+          console.warn({ error });
+        },
+        () => {
+          console.log('Completed!');
+        }
+      );
   }
 }

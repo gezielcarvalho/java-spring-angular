@@ -38,5 +38,6 @@
     </button>
     <p *ngIf="isAreaVisible" appBasicHighlight>Condidtion is true</p>
     <p *appUnless="isAreaVisible" appBasicHighlight>Condidtion is false</p>
+    <p *ngIf="userActivated" class="bg-red-300">Activated! {{ userSeed }}</p>
   </div>
 </div>

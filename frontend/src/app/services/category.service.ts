@@ -1,14 +1,19 @@
 // category.service.ts
 import { EventEmitter, Injectable } from '@angular/core';
 
-import { Subject } from 'rxjs';
+import { Subject, from } from 'rxjs';
 
 import { Category } from '../models/category.model';
+
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
+  constructor(private http: HttpClient) {}
+
+  activatedEmitter = new Subject<boolean>();
   // TODO: encapsulate
   categorySelected = new EventEmitter<Category>();
   categoryDeleted = new EventEmitter<Category>();
@@ -18,6 +23,8 @@ export class CategoryService {
   private deleteRecordSource = new Subject<Category>();
   private closeModalSource = new Subject<void>();
   private openModalSource = new Subject<void>();
+
+  public updateDataSource = new Subject<any>();
 
   saveRecord$ = this.saveRecordSource.asObservable();
   updateRecord$ = this.updateRecordSource.asObservable();
@@ -56,12 +63,22 @@ export class CategoryService {
     },
   ];
 
+  activateParagraph(): Subject<boolean> {
+    return this.activatedEmitter;
+  }
+
   saveRecord(newRecord: Category) {
     this.saveRecordSource.next(newRecord);
   }
 
   updateRecord(newRecord: Category) {
     this.updateRecordSource.next(newRecord);
+  }
+
+  updateData() {
+    from(this.http.get('https://randomuser.me/api/')).subscribe((data) => {
+      this.updateDataSource.next(data);
+    });
   }
 
   deleteRecord(record: Category) {
