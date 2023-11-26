@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,16 +18,6 @@ public class CategoryService {
 	
 	@Autowired
 	private CategoryRepository repository;
-
-	// readOnly true avoids locking database 
-	@Transactional(readOnly = true)
-	public List<CategoryDTO> findAll() {
-	    return repository
-	    		.findAll()
-	    		.stream()
-	            .map(cat ->  new CategoryDTO(cat))
-	            .collect(Collectors.toList());
-	}
 
 	@Transactional(readOnly = true)
 	public CategoryDTO findOne(Long id) {
@@ -55,5 +47,11 @@ public class CategoryService {
 	public void delete(Long id) {
 		// after adding product entity, check referential integrity 
 		repository.deleteById(id);
+	}
+
+	@Transactional(readOnly = true)
+	public Page<CategoryDTO> findAllPaged(PageRequest pageRequest) {
+		Page<Category> list = repository.findAll(pageRequest);       
+		return list.map(cat ->  new CategoryDTO(cat));
 	}
 }
