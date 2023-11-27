@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import info.gezielcarvalho.dscatalog.dto.CategoryDTO;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -51,6 +52,11 @@ public class Category implements Serializable {
 	public Category(Long id, String name) {
 		this.id = id;
 		this.name = name;
+	}
+	
+	public Category(CategoryDTO category) {
+		this.id = category.getId();
+		this.name = category.getName();
 	}
 
 	public Long getId() {

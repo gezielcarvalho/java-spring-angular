@@ -52,19 +52,19 @@ public class CategoryResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<CategoryDTO> create(@RequestBody CategoryDTO category){
-		var result = service.create(category);
+	public ResponseEntity<CategoryDTO> create(@RequestBody CategoryDTO entity){
+		var result = service.create(entity);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(result.getId()).toUri();
 		return ResponseEntity.created(uri).body(result);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<CategoryDTO> update(@PathVariable Long id, @RequestBody CategoryDTO category) {
+	public ResponseEntity<CategoryDTO> update(@PathVariable Long id, @RequestBody CategoryDTO entity) {
 		var result = service.findOne(id);
 		if (result == null) {
 			return ResponseEntity.notFound().build();
 		}
-		CategoryDTO updated = service.save(id,category);
+		CategoryDTO updated = service.save(id,entity);
 		return ResponseEntity.ok().body(updated);
 	}
 	
