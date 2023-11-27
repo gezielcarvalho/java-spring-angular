@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
+import info.gezielcarvalho.dscatalog.dto.CategoryDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -59,6 +59,16 @@ public class Product implements Serializable {
 		this.description = description;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
+	}
+	
+	public Product(Long id, String name, Double price, String imgUrl, CategoryDTO category, String description) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.imgUrl = imgUrl;
+		this.category = new Category(category);
+		this.description = description;
 	}
 
 	public Category getCategory() {
