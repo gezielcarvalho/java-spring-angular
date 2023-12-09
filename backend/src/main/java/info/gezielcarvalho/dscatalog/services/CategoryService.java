@@ -28,10 +28,10 @@ public class CategoryService {
 		return null;
 	}
 
-	@Transactional(readOnly = true)
+	@Transactional
 	public CategoryDTO create(CategoryDTO category) {
 		var result = repository
-				.save(new Category(category.getId(),category.getName()));
+				.save(new Category(category.getName()));
 		return new CategoryDTO(result);
 	}
 

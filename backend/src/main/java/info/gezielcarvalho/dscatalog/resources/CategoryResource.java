@@ -48,13 +48,17 @@ public class CategoryResource {
 		if (result == null) {
 			return ResponseEntity.notFound().build();
 		}
-		return ResponseEntity.ok().body(service.findOne(id));
+		return ResponseEntity.ok().body(result);
 	}
 	
 	@PostMapping
 	public ResponseEntity<CategoryDTO> create(@RequestBody CategoryDTO entity){
 		var result = service.create(entity);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(result.getId()).toUri();
+		URI uri = ServletUriComponentsBuilder
+					.fromCurrentRequest()
+					.path("/{id}")
+					.buildAndExpand(result.getId())
+					.toUri();
 		return ResponseEntity.created(uri).body(result);
 	}
 	
