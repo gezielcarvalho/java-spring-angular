@@ -2,14 +2,13 @@ package info.gezielcarvalho.dscatalog.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import info.gezielcarvalho.dscatalog.dto.CategoryDTO;
 import info.gezielcarvalho.dscatalog.dto.ProductCreateUpdateDTO;
 import info.gezielcarvalho.dscatalog.dto.ProductDTO;
-import info.gezielcarvalho.dscatalog.entities.Category;
 import info.gezielcarvalho.dscatalog.entities.Product;
 import info.gezielcarvalho.dscatalog.repositories.CategoryRepository;
 import info.gezielcarvalho.dscatalog.repositories.ProductRepository;
@@ -66,8 +65,8 @@ public class ProductService {
 	}
 
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findAllPaged(PageRequest pageRequest) {
-		Page<Product> list = repository.findAll(pageRequest);       
+	public Page<ProductDTO> findAllPaged(Pageable pageable) {
+		Page<Product> list = repository.findAll(pageable);       
 		return list.map(cat ->  new ProductDTO(cat));
 	}
 }
