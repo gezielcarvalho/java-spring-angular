@@ -37,3 +37,7 @@
     bg-gray-900 text-white h-16 w-full px-4;
   }
 }
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
