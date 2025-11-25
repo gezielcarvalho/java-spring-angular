@@ -33,8 +33,8 @@ A full-stack catalog application for managing products and categories with Sprin
 - ❌ Authentication & Authorization
 - ❌ Error handling & validation
 - ❌ Unit and integration tests
-- ❌ Production database setup
-- ❌ Docker containerization
+- ✅ Production database setup (PostgreSQL with Docker)
+- ✅ Docker containerization (multi-stage builds)
 
 ### ⚠️ Known Issues
 
@@ -42,11 +42,79 @@ A full-stack catalog application for managing products and categories with Sprin
 - No frontend-backend integration yet
 - Frontend is not production-ready
 
+## 🐳 Docker Support
+
+The application is fully dockerized with multi-stage builds for optimal image size and security.
+
+### Quick Start with Docker Compose
+
+**Start all services (backend, frontend, PostgreSQL):**
+
+```bash
+docker compose up -d
+```
+
+**Access the application:**
+
+- Frontend: `http://localhost:4200`
+- Backend API: `http://localhost:8080`
+- Swagger UI: `http://localhost:8080/swagger-ui.html`
+
+**View logs:**
+
+```bash
+# All services
+docker compose logs -f
+
+# Specific service
+docker compose logs -f backend
+docker compose logs -f frontend
+docker compose logs -f postgres
+```
+
+**Stop all services:**
+
+```bash
+docker compose down
+```
+
+**Stop and remove volumes (clean database):**
+
+```bash
+docker compose down -v
+```
+
+### Individual Container Builds
+
+**Build and run backend only:**
+
+```bash
+cd backend
+docker build -t dscatalog-backend .
+docker run -p 8080:8080 dscatalog-backend
+```
+
+**Build and run frontend only:**
+
+```bash
+cd frontend
+docker build -t dscatalog-frontend .
+docker run -p 4200:80 dscatalog-frontend
+```
+
+### Docker Architecture
+
+- **Backend:** Multi-stage build with Maven (build) + Eclipse Temurin JRE 21 (runtime)
+- **Frontend:** Multi-stage build with Node.js (build) + Nginx (runtime)
+- **Database:** PostgreSQL 15 Alpine with persistent volume
+- **Network:** Bridge network for inter-container communication
+- **Volumes:** Persistent PostgreSQL data storage
+
 ## 🛠️ Technology Stack
 
 ### Backend
 
-- **Java 17**
+- **Java 21**
 - **Spring Boot 3.1.1**
   - Spring Data JPA
   - Spring Web
@@ -70,10 +138,18 @@ A full-stack catalog application for managing products and categories with Sprin
 
 ### Prerequisites
 
-- Java 17 or higher
+#### Option 1: Using Docker (Recommended)
+
+- Docker Desktop or Docker Engine 20.10+
+- Docker Compose V2
+
+#### Option 2: Local Development
+
+- Java 21 or higher
 - Node.js 16+ and npm
 - Maven 3.6+ (or use included Maven wrapper)
 - Git
+- PostgreSQL 12+ (optional, H2 can be used for testing)
 
 ### Backend Setup & Run
 
@@ -326,18 +402,48 @@ spring.jpa.show-sql=true
 
 - `/categories` - Categories endpoint
 - `/products` - Products endpoint
-- `/h2-console` - Database console
+- `/h2-console` - Database console (only in test profile)
 - `/swagger-ui.html` - API documentation
 
 ### Port Already in Use
 
 ```bash
-# Windows - kill process on port 8080
+# Windows - kill process on port 8080/4200
 netstat -ano | findstr :8080
 taskkill /PID <PID> /F
 
 # Linux/Mac
 lsof -ti:8080 | xargs kill -9
+```
+
+### Docker Issues
+
+**Container won't start:**
+
+```bash
+# Check container logs
+docker compose logs backend
+
+# Rebuild without cache
+docker compose build --no-cache
+docker compose up -d
+```
+
+**Database connection errors:**
+
+```bash
+# Ensure PostgreSQL is healthy
+docker compose ps
+
+# Restart services
+docker compose restart backend
+```
+
+**Clean slate (remove all data):**
+
+```bash
+docker compose down -v
+docker compose up -d
 ```
 
 ### Build Errors
@@ -375,9 +481,10 @@ cd backend
    - Angular component tests
 
 5. **Production Deployment**
-   - PostgreSQL configuration
-   - Docker containers
-   - CI/CD pipeline
+   - ✅ PostgreSQL configuration
+   - ✅ Docker containers
+   - ❌ CI/CD pipeline
+   - ❌ Kubernetes deployment
 
 ## 📚 References
 
@@ -392,4 +499,17 @@ This is a learning project based on DevSuperior course materials.
 
 ---
 
-**Last Updated:** November 11, 2025
+## 🗂️ Project Files
+
+### Docker Configuration Files
+
+- `Dockerfile` (backend) - Multi-stage build for Spring Boot
+- `Dockerfile` (frontend) - Multi-stage build with Nginx
+- `docker-compose.yml` - Orchestration for all services
+- `nginx.conf` (frontend) - Nginx configuration for Angular SPA
+- `application-prod.properties` - Production configuration for PostgreSQL
+- `.dockerignore` - Files excluded from Docker builds
+
+---
+
+**Last Updated:** November 24, 2025
