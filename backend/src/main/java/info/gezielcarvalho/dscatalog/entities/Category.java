@@ -1,5 +1,6 @@
 package info.gezielcarvalho.dscatalog.entities;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
@@ -22,6 +23,7 @@ import jakarta.persistence.Table;
 @Table(name = "`Categories`")
 public class Category implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Id
